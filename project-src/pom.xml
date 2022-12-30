@@ -14,17 +14,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <slf4j.version>1.7.5</slf4j.version>
+        <slf4j.version>2.0.5</slf4j.version>
         <junit.version>5.9.0</junit.version>
         <springframework.version>5.3.22</springframework.version>
         <springsecurity.version>5.7.3</springsecurity.version>
         <jstl.version>1.2.2</jstl.version>
         <tld.version>1.1.2</tld.version>
-        <c3p0.version>0.9.5.5</c3p0.version>
+        <c3p0.version>0.9.5.2</c3p0.version>
         <hsqldb.version>1.8.0.10</hsqldb.version>
-        <hibernate.version>6.1.6.Final</hibernate.version>
-        <hibernate.validator>8.0.0.Final</hibernate.validator>
-        <aspectjweaver.version>1.9.19</aspectjweaver.version>
+        <hibernate.version>5.6.11.Final</hibernate.version>
+        <hibernate.validator>6.2.4.Final</hibernate.validator>
+        <aspectjweaver.version>1.9.7</aspectjweaver.version>
         <mysql.version>8.0.30</mysql.version>
         <mariadb.version>3.0.6</mariadb.version>
     </properties>

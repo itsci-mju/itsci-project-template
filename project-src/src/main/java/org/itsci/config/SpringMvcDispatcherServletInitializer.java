@@ -1,11 +1,8 @@
 package org.itsci.config;
 
-import org.apache.log4j.Logger;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class SpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
-
-    private static final Logger logging = Logger.getLogger(SpringMvcDispatcherServletInitializer.class);
 
     @Override
     protected Class<?>[] getRootConfigClasses() {

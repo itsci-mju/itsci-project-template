@@ -1,6 +1,5 @@
 package org.itsci.config;
 
-import org.apache.log4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +18,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableAspectJAutoProxy
 @ComponentScan(basePackages = "org.itsci")
 public class WebConfig implements WebMvcConfigurer {
-
-    private static final Logger logging = Logger.getLogger(WebConfig.class);
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
