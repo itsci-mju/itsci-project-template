@@ -21,5 +21,7 @@ hs_err_pid*
 
 # IntelliJ Idea file settings
 .idea
+.jpb
+target
 
 *.iml
