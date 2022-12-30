@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
@@ -30,12 +31,12 @@
                             <div>
                                 <c:if test="${param.error != null}">
                                     <div class="alert alert-danger col-xs-offset-1 col-xs-10">
-                                        ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง
+                                        <spring:message code="page.error.invalid-user"/>
                                     </div>
                                 </c:if>
                                 <c:if test="${param.logout != null}">
                                     <div class="alert alert-success col-xs-offset-1 col-xs-10">
-                                        คุณออกจากระบบแล้ว
+                                        <spring:message code="page.login.already_loggedout"/>
                                     </div>
                                 </c:if>
                             </div>
@@ -44,23 +45,23 @@
                     <!-- User name -->
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" name="username" placeholder="ชื่อผู้ใช้" class="form-control">
+                        <input type="text" name="username" class="form-control">
                     </div>
                     <!-- Password -->
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input type="password" name="password" placeholder="รหัสผ่าน" class="form-control">
+                        <input type="password" name="password" class="form-control">
                     </div>
                     <!-- Login/Submit Button -->
                     <div style="margin-top: 10px" class="form-group">
                         <div class="col-sm-6 controls">
-                            <button type="submit" class="btn btn-success">เข้าสู่ระบบ</button>
+                            <button type="submit" class="btn btn-success"><spring:message code="page.login"/> </button>
                         </div>
                     </div>
                 </form:form>
                 <p>
-                    <a href="${pageContext.request.contextPath}/register">ลงทะเบียน</a><br>
-                    <a href="${pageContext.request.contextPath}">กลับสู่หน้าหลัก</a>
+                    <a href="${pageContext.request.contextPath}/register"><spring:message code="page.menu.register"/></a><br>
+                    <a href="${pageContext.request.contextPath}"><spring:message code="page.back-to-home"/></a>
                 </p>
             </div>
         </div>

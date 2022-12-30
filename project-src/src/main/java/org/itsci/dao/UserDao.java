@@ -1,6 +1,7 @@
-package org.itsci.attendance.dao;
+package org.itsci.dao;
 
-import org.itsci.attendance.model.User;
+import org.itsci.model.Login;
+import org.itsci.model.User;
 
 import java.util.List;
 
@@ -13,6 +14,8 @@ public interface UserDao {
     User getUser(Long id);
 
     void deleteUser(Long id);
+
+    Login getLoginById(Long id);
 
     User findByUsername(String username);
 }

@@ -1,9 +1,10 @@
-package org.itsci.attendance.dao;
+package org.itsci.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.itsci.attendance.model.User;
+import org.itsci.model.Login;
+import org.itsci.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -51,6 +52,12 @@ public class UserDaoImpl implements UserDao {
         User user = session.load(User.class, id);
         session.delete(user);
         session.flush() ;
+    }
+
+    @Override
+    public Login getLoginById(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.load(Login.class, id);
     }
 
     @Override

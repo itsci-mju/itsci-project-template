@@ -1,9 +1,9 @@
-package org.itsci.attendance.dao;
+package org.itsci.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.itsci.attendance.model.Authority;
+import org.itsci.model.Authority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

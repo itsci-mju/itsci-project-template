@@ -1,4 +1,4 @@
-package org.itsci.attendance.config;
+package org.itsci.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,10 +13,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests(configurer -> {
-            configurer.antMatchers("/user-profile/**").authenticated()
-                    .antMatchers("/system/**").hasRole("ADMIN")
-                    .antMatchers("/teacher/**").hasRole("TEACHER")
-                    .antMatchers("/student/**").hasRole("STUDENT");
+            configurer.antMatchers("/user/**").authenticated()
+                    .antMatchers("/system/**").hasRole("ADMIN");
         });
 
         http.exceptionHandling(configurer -> {

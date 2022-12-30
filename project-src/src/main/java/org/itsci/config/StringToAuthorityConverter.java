@@ -1,7 +1,7 @@
-package org.itsci.shop.config;
+package org.itsci.config;
 
-import org.itsci.shop.model.Authority;
-import org.itsci.shop.model.AuthorityType;
+import org.itsci.model.Authority;
+import org.itsci.model.AuthorityType;
 import org.springframework.core.convert.converter.Converter;
 
 public class StringToAuthorityConverter implements Converter<String, Authority> {

@@ -8,6 +8,9 @@
 </head>
 <body>
 <h1><spring:message code="page.home" /></h1>
+<div class="container">
+    <jsp:include page="/WEB-INF/view/layouts/nav.jsp"/>
+</div>
 <jsp:include page="/WEB-INF/view/layouts/footer.jsp"/>
 </body>
 </html>

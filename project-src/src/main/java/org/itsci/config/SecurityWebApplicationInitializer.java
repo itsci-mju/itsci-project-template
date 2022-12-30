@@ -1,4 +1,4 @@
-package org.itsci.attendance.config;
+package org.itsci.config;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

@@ -1,4 +1,4 @@
-package org.itsci.attendance.model;
+package org.itsci.model;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "logins")
-public class Login implements UserDetails {
+public class Login {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,8 @@ public class Login implements UserDetails {
     private String username;
     @Column(nullable = false)
     private String password;
+    @Transient
+    private String confirmPassword;
     @Column(columnDefinition = "TINYINT(1)")
     private boolean enabled;
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
@@ -47,23 +49,16 @@ public class Login implements UserDetails {
         this.password = password;
     }
 
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
     public String getUsername() {
         return username;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
     }
 
     public boolean isEnabled() {

@@ -1,6 +1,6 @@
-package org.itsci.attendance.dao;
+package org.itsci.dao;
 
-import org.itsci.attendance.model.Authority;
+import org.itsci.model.Authority;
 
 public interface AuthorityDao {
     void delete(int id);

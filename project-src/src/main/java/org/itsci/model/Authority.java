@@ -1,4 +1,4 @@
-package org.itsci.attendance.model;
+package org.itsci.model;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;

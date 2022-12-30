@@ -1,10 +1,11 @@
-package org.itsci.attendance.service;
+package org.itsci.service;
 
-import org.itsci.attendance.dao.AuthorityDao;
-import org.itsci.attendance.dao.UserDao;
-import org.itsci.attendance.model.Authority;
-import org.itsci.attendance.model.AuthorityType;
-import org.itsci.attendance.model.User;
+import org.itsci.dao.AuthorityDao;
+import org.itsci.dao.UserDao;
+import org.itsci.model.Authority;
+import org.itsci.model.AuthorityType;
+import org.itsci.model.Login;
+import org.itsci.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -61,7 +62,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public void updateUser(User user, List<Authority> authorityToRemove, List<Authority> authorityToAdd) {
         for (Authority authority : authorityToRemove) {
             user.getLogin().getAuthorities().remove(authority);
-            authorityDao.delete(authority.getId());
         }
         for (Authority auth : authorityToAdd) {
             Authority authority = authorityDao.findByAuthority(auth.getAuthority());
@@ -82,6 +82,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         user.getLogin().setAuthorities(authorities);
         user.getLogin().setEnabled(true);
         userDao.saveUser(user);
+    }
+
+    @Override
+    @Transactional
+    public Login getLoginById(Long id) {
+        return userDao.getLoginById(id);
     }
 
     @Override

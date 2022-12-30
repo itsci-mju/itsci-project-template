@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +10,9 @@
     <h1>Access Denied</h1>
     <hr>
     <div class="container">
-        <h2 style="text-align: center;">คุณไม่ได้รับอนุญาตให้เข้าถึงหน้าเว็บนี้</h2>
+        <h2 style="text-align: center;"><spring:message code="page.access-denied.title" /></h2>
         <div style="text-align:center">
-            <a href="${pageContext.request.contextPath}/">กลับไปหน้าแรก</a>
+            <a href="${pageContext.request.contextPath}/"><spring:message code="page.access-denied.back" /></a>
         </div>
     </div>
     <jsp:include page="/WEB-INF/view/layouts/footer.jsp"/>
