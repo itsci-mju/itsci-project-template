@@ -100,7 +100,7 @@
             </table>
         </form:form>
         <p>
-            <c:url var="backLink" value="/member/list"/>
+            <c:url var="backLink" value="/system/member/list"/>
             <a href="${backLink}">&lt;&lt; <spring:message code="page.navigate.back"/></a>
         </p>
     </div>

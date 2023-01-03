@@ -49,7 +49,7 @@ public class MemberDaoImpl implements MemberDao {
     @Override
     public void deleteMember(Long id) {
         Session session = sessionFactory.getCurrentSession();
-        Member member = session.load(Member.class, id);
+        Member member = session.get(Member.class, id);
         session.delete(member);
         session.flush() ;
     }

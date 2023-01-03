@@ -20,8 +20,6 @@ public class Authority implements GrantedAuthority {
     @Column(length = 50, nullable = false, unique = true)
     private String authority;
     private String description;
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "authorities")
-    private Set<Login> logins;
 
     public Authority() {}
 
@@ -51,14 +49,6 @@ public class Authority implements GrantedAuthority {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Set<Login> getLogins() {
-        return logins;
-    }
-
-    public void setLogins(Set<Login> logins) {
-        this.logins = logins;
     }
 
     @Override

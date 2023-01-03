@@ -32,9 +32,6 @@
         </thead>
         <tbody>
         <c:forEach var="user" items="${members}">
-            <c:url var="deleteLink" value="/system/member/delete">
-                <c:param name="id" value="${user.id}"/>
-            </c:url>
             <tr>
                 <td><a href="${pageContext.request.contextPath}/system/member/${user.id}/update">${user.username}</a></td>
                 <td>${user.firstName}</td>
