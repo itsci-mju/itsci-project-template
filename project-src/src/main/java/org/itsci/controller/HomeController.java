@@ -15,4 +15,9 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/home")
+    public String authenticated_home() {
+        return "home";
+    }
+
 }

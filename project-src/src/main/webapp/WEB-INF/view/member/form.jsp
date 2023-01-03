@@ -21,7 +21,7 @@
     <div style="clear: both;"></div>
     <div id="container">
         <i><spring:message code="page.user.role"/></i><br><br>
-        <form:form action="${pageContext.request.contextPath}/user/save" modelAttribute="user" method="POST">
+        <form:form action="${pageContext.request.contextPath}/system/member/save" modelAttribute="member" method="POST">
             <form:hidden path="id"/>
             <table>
                 <colgroup>
@@ -50,6 +50,20 @@
                         <form:errors path="lastName" cssClass="error"/>
                     </td>
                 </tr>
+                <tr>
+                    <td><label><spring:message code="bean.user.validFrom"/> :&nbsp;</label></td>
+                    <td>
+                        <form:input type="date" path="validFrom"/>
+                        <form:errors path="validFrom" cssClass="error"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label><spring:message code="bean.user.expiredDate"/> :&nbsp;</label></td>
+                    <td>
+                        <form:input type="date"  path="expiredDate"/>
+                        <form:errors path="expiredDate" cssClass="error"/>
+                    </td>
+                </tr>
                 <security:authorize access="hasRole('ADMIN')">
                     <tr>
                         <td><label>Role:&nbsp;</label></td>
@@ -76,7 +90,7 @@
                         <button type="submit" class="save-button">
                             <spring:message code="page.btn.save"/>
                         </button>
-                        <button onclick="if((confirm('คุณแน่ใจหรือว่าต้องการลบร้านค้านี้ ?'))) { window.location.href='${pageContext.request.contextPath}/user/${user.id}/delete'; return false; }"
+                        <button onclick="if((confirm('คุณแน่ใจหรือว่าต้องการลบผู้ใช้นี้ ?'))) { window.location.href='${pageContext.request.contextPath}/system/member/${member.id}/delete'; return false; }"
                                 class="cancel-button">
                             <spring:message code="page.btn.delete"/>
                         </button>
@@ -86,7 +100,7 @@
             </table>
         </form:form>
         <p>
-            <c:url var="backLink" value="/user/list"/>
+            <c:url var="backLink" value="/member/list"/>
             <a href="${backLink}">&lt;&lt; <spring:message code="page.navigate.back"/></a>
         </p>
     </div>

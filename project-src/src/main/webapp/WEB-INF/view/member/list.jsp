@@ -17,7 +17,7 @@
 <div class="container">
     <jsp:include page="/WEB-INF/view/layouts/nav.jsp"/>
 
-    <button onclick="window.location.href='${pageContext.request.contextPath}/user/create'; return false;"
+    <button onclick="window.location.href='${pageContext.request.contextPath}/system/member/create'; return false;"
             class="add-button">
         <spring:message code="page.user.create"/>
     </button>
@@ -31,12 +31,12 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="user" items="${users}">
-            <c:url var="deleteLink" value="/user/delete">
+        <c:forEach var="user" items="${members}">
+            <c:url var="deleteLink" value="/system/member/delete">
                 <c:param name="id" value="${user.id}"/>
             </c:url>
             <tr>
-                <td><a href="${pageContext.request.contextPath}/user/${user.id}/update">${user.username}</a></td>
+                <td><a href="${pageContext.request.contextPath}/system/member/${user.id}/update">${user.username}</a></td>
                 <td>${user.firstName}</td>
                 <td>${user.lastName}</td>
             </tr>

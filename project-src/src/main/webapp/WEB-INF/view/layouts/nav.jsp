@@ -9,14 +9,14 @@
     <ul>
         <li><a href="${pageContext.request.contextPath}"><spring:message code="page.home" /></a></li>
         <security:authorize access="hasRole('ADMIN')">
-            <li><a href="${pageContext.request.contextPath}/user/list"><spring:message code="page.user"/> </a></li>
+            <li><a href="${pageContext.request.contextPath}/system/member/list"><spring:message code="page.user"/> </a></li>
         </security:authorize>
         <security:authorize access="!isAuthenticated()">
             <li><a href="${pageContext.request.contextPath}/login"><spring:message code="page.login"/> </a></li>
         </security:authorize>
         <security:authorize access="isAuthenticated()">
             <li>ชื่อผู้ใช้:
-                <a href="${pageContext.request.contextPath}/user/profile">
+                <a href="${pageContext.request.contextPath}/member/profile">
                     <security:authentication property="principal.username" />
                 </a>
             </li>

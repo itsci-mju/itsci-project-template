@@ -144,6 +144,12 @@
             <artifactId>mariadb-java-client</artifactId>
             <version>${mariadb.version}</version>
         </dependency>
+        <!-- mysqldb-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.30</version>
+        </dependency>
         <!-- Aspect oriented programming (APO) -->
         <dependency>
             <groupId>org.aspectj</groupId>

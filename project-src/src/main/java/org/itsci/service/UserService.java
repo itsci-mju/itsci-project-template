@@ -10,8 +10,6 @@ public interface UserService {
 
     User getUser(Long id);
 
-    User findByUsername(String username);
-
     void saveUser(User user);
 
     List<User> getUsers();
@@ -21,6 +19,8 @@ public interface UserService {
     void updateUser(User user, List<Authority> authorityToRemove, List<Authority> authorityToAdd);
 
     void register(User user);
+
+    User findByUsername(String username);
 
     Login getLoginById(Long id);
 }

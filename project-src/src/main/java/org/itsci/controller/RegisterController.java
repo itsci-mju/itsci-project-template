@@ -1,7 +1,7 @@
 package org.itsci.controller;
 
-import org.itsci.model.User;
-import org.itsci.service.UserService;
+import org.itsci.model.Member;
+import org.itsci.service.MemberService;
 import org.itsci.utils.UIValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Date;
 import java.util.Locale;
 
 @Controller
@@ -20,30 +21,30 @@ public class RegisterController {
     ResourceBundleMessageSource messageSource;
 
     @Autowired
-    private UserService userService;
+    private MemberService memberService;
 
     @GetMapping("/register")
     public String showFormForRegister(Model model) {
         model.addAttribute("title", messageSource.getMessage("page.register.title", null, Locale.getDefault()));
-        model.addAttribute("user", new User());
+        model.addAttribute("member", new Member());
         return "register/register-form";
     }
 
     @PostMapping("/register")
-    public String register(@ModelAttribute("user") User user,
+    public String register(@ModelAttribute("member") Member member,
                            BindingResult bindingResult,
                            Model model) {
-        if (!UIValidator.FieldNotNullValidator(user, "username")) {
+        if (!UIValidator.FieldNotNullValidator(member, "username")) {
             bindingResult.rejectValue("username", "NotNull");
-        } else if (!UIValidator.FieldPatternValidator(user, "username")) {
+        } else if (!UIValidator.FieldPatternValidator(member, "username")) {
             bindingResult.rejectValue("username", "NotNull");
         }
-        if (!UIValidator.FieldNotNullValidator(user, "password")) {
+        if (!UIValidator.FieldNotNullValidator(member, "password")) {
             bindingResult.rejectValue("password", "NotNull");
         }
-        if (!UIValidator.FieldNotNullValidator(user, "confirmPassword")) {
+        if (!UIValidator.FieldNotNullValidator(member, "confirmPassword")) {
             bindingResult.rejectValue("confirmPassword", "NotNull");
-        } else if (!UIValidator.FieldsValueMatchValidator(user, "password", "confirmPassword")) {
+        } else if (!UIValidator.FieldsValueMatchValidator(member, "password", "confirmPassword")) {
             bindingResult.rejectValue("confirmPassword", "MisMatch");
         }
 
@@ -51,7 +52,8 @@ public class RegisterController {
             model.addAttribute("title", messageSource.getMessage("page.error", null, Locale.getDefault()));
             return "register/register-form";
         } else {
-            userService.register(user);
+            member.setValidFrom(new Date());
+            memberService.register(member);
             return "redirect:/";
         }
     }

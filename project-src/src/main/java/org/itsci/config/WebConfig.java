@@ -22,8 +22,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(new StringToAuthorityConverter());
-//        registry.addConverter(new StringToDateConverter());
-//        registry.addConverter(new DateToStringConverter());
+        registry.addConverter(new StringToDateConverter());
+        registry.addConverter(new DateToStringConverter());
     }
 
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

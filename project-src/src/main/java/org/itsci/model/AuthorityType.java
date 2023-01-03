@@ -1,7 +1,8 @@
 package org.itsci.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.context.support.ResourceBundleMessageSource;
+
+import java.util.*;
 
 public enum AuthorityType {
     ROLE_MEMBER("ROLE_MEMBER"),
@@ -22,6 +23,16 @@ public enum AuthorityType {
             }
         }
         return authorities;
+    }
+
+    public static Object getAuthorityOptions(ResourceBundleMessageSource messageSource, Locale locale) {
+        List<String> authorities = getAuthorities();
+        Map<String, String> authorityOptions = new HashMap<>();
+        for (String authority : authorities) {
+            String label = messageSource.getMessage("enum.AuthorityType." + authority, null, locale);
+            authorityOptions.put(authority, label);
+        }
+        return authorityOptions;
     }
 
     @Override

@@ -16,7 +16,7 @@
     <div style="clear: both;"></div>
     <div id="container">
         <i><spring:message code="page.user.role"/> </i><br><br>
-        <form:form action="${pageContext.request.contextPath}/register" modelAttribute="user" method="POST">
+        <form:form action="${pageContext.request.contextPath}/register" modelAttribute="member" method="POST">
             <form:hidden path="id"/>
             <table>
                 <colgroup>

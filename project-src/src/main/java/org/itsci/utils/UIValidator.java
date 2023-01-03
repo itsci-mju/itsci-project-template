@@ -1,7 +1,13 @@
 package org.itsci.utils;
 
+import org.itsci.model.AuthorityType;
 import org.springframework.beans.BeanWrapperImpl;
+import org.springframework.context.support.ResourceBundleMessageSource;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class UIValidator {
